@@ -16,4 +16,6 @@ description: The handbook for the CIA toolchain and its benchmark.
 }
 ```
 
-## CIA Paper
+## Our Paper
+
+[Chosen-Instruction Attack Against Commercial Code Virtualization Obfuscators](https://www.ndss-symposium.org/wp-content/uploads/2022-15-paper.pdf)
