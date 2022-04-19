@@ -14,9 +14,9 @@ $ python caller.py -c config/config.json
 
 Then you start the process of program generation. The script `caller.py` will act according to the "actions" defined in `config.json`. The actions include:
 
-* **`clean`** - clean up generated files
-* **`gen`** - generate C source code files. Implemented by insset\_test.py
-* **`make`** - generate 3 pairs of original executable and protected executable. Implemented by Make
+* **`clean`** -     Clean up generated files
+* **`gen`** -         Generate C source code files. Implemented by insset\_test.py
+* **`make`** -       Generate 3 pairs of original executable and protected executable. Implemented by Make
 * **`pin`** -&#x20;
 * **`anchor_pin`** -&#x20;
 * **`makelogcmp`** -&#x20;
@@ -43,12 +43,12 @@ Receive instruction lists then automatically generate programs' source code file
 $ python insset_test.py -i testset -o output_dir -t c_template -m makefile_template [-a anchor] [-l log_path]
 ```
 
-* `-i` path of instruction lists
-* `-o` C source code files output directory
-* `-t` C source code template (<mark style="color:red;">是目录吗</mark>)
-* `-m` makefile template
-* `-a` anchor instruction, default:`cmpxchg eax, eax`
-* \-`l`  location of log file. Default:`""`, print the content to the console
+* `-i`     Path of instruction lists
+* `-o`     C source code files output directory
+* `-t`     C source code template (<mark style="color:red;">是目录吗</mark>)
+* `-m`     Makefile template
+* `-a`     Anchor instruction, default:`cmpxchg eax, eax`
+* \-`l`      Location of log file. Default:`""`, print to the console
 
 #### Global Variables :
 
@@ -69,10 +69,10 @@ Start the makefile script to compile the programs, then execute them with pintoo
 python FetchTestSet.py  -d dir1 dir2 ...  [-b base_dir  -a anchor_str  -l logfile]
 ```
 
-* `-d` directory of executables for test, you can select more than one
-* `-b` parent directory of test programs' directory. Look for it in recursive
-* `-a` anchor instruction
-* `-l` location of log file. Default:`""`, print the content to the console
+* `-d`     Directory of executables for test, you can select more than one
+* `-b`     Parent directory of test programs' directory. Look for in recursive
+* `-a`     Anchor instruction
+* `-l`     Location of log file. Default:`""`, print to the console
 
 #### Global Variables :
 
@@ -96,8 +96,8 @@ Analyze the logs to determine crieria if the tested instruction is an anchor ins
 python AnchorFinder.py -d dir1 dir2... -m mode [-a anchor -b base_dir -l logfile]
 ```
 
-* `-d` directory to store logs, you can select more than one
-* `-m` anchor instruction determination mode. (3anchor/retanchor)
-* `-a` anchor instruction. Default:`cmpxchg eax, eax`
-* `-b` parent directory of test programs' directory
-* `-l` location of log file. Default:`""`, print the content to the console
+* `-d`     Directory to store logs, you can select more than one
+* `-m`     Anchor instruction determination mode. (3anchor/retanchor)
+* `-a`     Anchor instruction. Default:`cmpxchg eax, eax`
+* `-b`     Parent directory of test programs' directory
+* `-l`     Location of log file. Default:`""`, print to the console

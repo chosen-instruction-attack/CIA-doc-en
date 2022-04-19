@@ -16,15 +16,15 @@ There are 6 pintools in all for test and use.
 
 This one is to record every instruction executed between anchor instructions. It has two modes:
 
-* **Script :** adapted to the toolchain processing.
-* **Readble :** easy to read and is used for testing.
+* **Script :**        Adapted to the toolchain processing.
+* **Readble :**    Easy to read and is used for testing.
 
 **Path :** `Pintool/instracelog.cpp`
 
 **Command line arguments ：**
 
-* \-i    a text file whose content is an anchor instruction, like `cmpxchg eax, eax`
-* \-o   filename of output trace
+* \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
+* \-o      Filename of output trace
 
 **Script mode instruction format ：**
 
@@ -48,8 +48,8 @@ Add hex and assembly of instructions.
 
 **Command line arguments ：**
 
-* \-i    a text file whose content is an anchor instruction, like `cmpxchg eax, eax`
-* \-o   filename of output trace
+* \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
+* \-o      Filename of output trace
 
 **Instruction format ：**
 
@@ -65,8 +65,8 @@ This version is for x86\_64 programs.
 
 **Command line arguments ：**
 
-* \-i    a text file whose content is an anchor instruction, like `cmpxchg eax, eax`
-* \-o   filename of output trace
+* \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
+* \-o      Filename of output trace
 
 **Instruction format ：**
 
@@ -82,7 +82,7 @@ Record all instructions executed, including those beyond anchor instructions.
 
 **Command line arguments ：**
 
-* \-o   filename of output trace
+* \-o      Filename of output trace
 
 ### 0x5 instracelog\_insdel
 
@@ -92,9 +92,9 @@ Some anchor instructions would affect the execution environment and bring unwant
 
 **Command line arguments ：**
 
-* \-s   the C source code of the sample
-* \-i    a text file whose content is an anchor instruction, like `cmpxchg eax, eax`
-* \-o   filename of output trace
+* \-s      The C source code of the sample
+* \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
+* \-o      Filename of output trace
 
 ### 0x6 anchorfinder
 
@@ -107,8 +107,8 @@ This is used to determine if an instruction is an anchor instruction when the si
 
 **Command line arguments ：**
 
-* \-s   the C source code of the sample
-* \-i    a text file whose content is an anchor instruction, like `cmpxchg eax, eax`
+* \-s      The C source code of the sample
+* \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
 
 **Instruction format ：**
 

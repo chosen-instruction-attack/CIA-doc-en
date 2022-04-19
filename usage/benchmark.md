@@ -14,11 +14,11 @@ Call `batchForCIA.py` to parse an instruction dictionary according to the Obfusc
 $ python batchForCIA.py -o Obfuscator -f file_dir -j json_store [-s -l]
 ```
 
-* `-o` Obfuscator Type, like VMProtect
-* `-f` directory of trace files
-* `-j` directory for result json files
-* `-s` select if symbolic execution
-* \-`l` less mode : no original trace list. If you don't need a complete instruction trace in the HTML report, just select this to get a much smaller size
+* `-o`      Obfuscator Type, like VMProtect
+* `-f`      Directory of trace files
+* `-j`      Directory for result json files
+* `-s`      Run symbolic execution
+* \-`l`       Less mode : no original trace list. If you don't need a complete instruction trace in the HTML report, select this to get a much smaller size
 
 #### Global Variables : <a href="#quan-ju-bian-liang" id="quan-ju-bian-liang"></a>
 
@@ -38,17 +38,17 @@ By Calling `fileAnalysis.py`, you can generate an HTML report for every item in 
 $ python fileAnalysis.py -o Obfuscator -p filePath [-a -r reportPath -c -e excelName -l -m -d deobfPath -v vmhuntPath -t]
 ```
 
-* `-o` Obfuscator Type, like VMProtect
-* `-p` directory of json files in the benchmark
-* `-a` select to extract original trace list from the benchmark (not less mode), then you can get a complete HTML report with `-r`
-* `-r` the directory for HTML reports. Only generate when non-empty
-* `-c` select to do contrastive evaluation on results of generic-deobfuscator and VMHunt
-* `-e` filename of the spreadsheet, which contains the contrast results of the evaluation. You don't need this if there is no evaluation. Only generate when non-empty
-* `-l` select to output logs in console
-* `-m` defualt mode (used in tests)
-* `-d` directory of the processed results of generic-deobfuscator. Only work if non-empty and `-c` selected
-* `-v` directory of the processed results of VMHunt. Only work if non-empty and `-c` selected
-* `-t` test if the benchmark is complete. Work alone apart from other functions
+* `-o`      Obfuscator Type, like VMProtect
+* `-p`      Directory of json files in the benchmark
+* `-a`      Extract original trace list from the benchmark (not less mode), then you can get a complete HTML report with `-r`
+* `-r`      Directory for HTML reports. Only generate when non-empty
+* `-c`      Contrastive evaluation on results of generic-deobfuscator and VMHunt
+* `-e`      Filename of the spreadsheet, which contains the contrast results of the evaluation. You don't need this if there is no evaluation. Only generate when non-empty
+* `-l`      Output logs in console
+* `-m`      Defualt mode (used in tests)
+* `-d`      Directory of the processed results of generic-deobfuscator. Only work when if non-empty and `-c` selected
+* `-v`      Directory of the processed results of VMHunt. Only work when non-empty and `-c` selected
+* `-t`      Test if the benchmark is complete. Work alone
 
 #### Global Variables : <a href="#quan-ju-bian-liang" id="quan-ju-bian-liang"></a>
 
