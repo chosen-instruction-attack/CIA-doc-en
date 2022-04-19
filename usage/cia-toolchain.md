@@ -16,7 +16,7 @@ Then you start the process of program generation. The script `caller.py` will ac
 
 * **`clean`** -     Clean up generated files
 * **`gen`** -         Generate C source code files. Implemented by insset\_test.py
-* **`make`** -       Generate 3 pairs of original executable and protected executable. Implemented by Make
+* **`make`** -       Generate 3 pairs of original executable and protected executable. Implemented by `Make`
 * **`pin`** -&#x20;
 * **`anchor_pin`** -&#x20;
 * **`makelogcmp`** -&#x20;
@@ -30,12 +30,12 @@ The script `caller.py` will call `insset_test.py`, `FetchTestSet.py`, `AnchorFin
 ### Important Paths
 
 * **`makefile_template`** - All makefile scripts, which are adapted to different obfuscators to generate corresponding programs.
-* **`testset`** - Lists including instructions for test, sorted by the types. These instructions are produced by [Intel XED](https://intelxed.github.io) and used for program generation with C source code templates.
+* **`testset`** - Lists of instructions for test, sorted by the types. These instructions are produced by resolving [Intel XED](https://intelxed.github.io) and used for program generation with C source code templates.
 * **`vmp_template`** - C source code templates. The Markers of each Obfuscator are embedded into the specific template to generate programs according to the instruction lists in **`testset`**. The anchor instruction used in the current templates is `cmpxchg eax, eax,` you can replace it as needed.
 
 ### 0x1 insset\_test.py
 
-Receive instruction lists then automatically generate programs' source code files into a specified path with code templates and makefile templates.
+Resolve instruction lists then automatically generate source code files into a specified path with code templates and makefile templates.
 
 **Command line arguments：**
 
@@ -47,21 +47,21 @@ $ python insset_test.py -i testset -o output_dir -t c_template -m makefile_templ
 * `-o`     C source code files output directory
 * `-t`     C source code template (<mark style="color:red;">是目录吗</mark>)
 * `-m`     Makefile template
-* `-a`     Anchor instruction, default:`cmpxchg eax, eax`
+* `-a`     Anchor instruction. Default:`cmpxchg eax, eax`
 * \-`l`      Location of log file. Default:`""`, print to the console
 
 #### Global Variables :
 
-| name          | function                                                                                                |
-| ------------- | ------------------------------------------------------------------------------------------------------- |
-| suffix        | Suffix of source code files. Default: ".c".                                                             |
-| ins\_hex\_lst | A dictionary with some instructions which have different disassembled results in capstone and pintools. |
-| except\_ins   | A dictionary with some instructions which cannot be assembled correctly by gcc.                         |
-| ks            | The assembler. Default: keystone in 32-bit.                                                             |
+| name          | function                                                                                       |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| suffix        | Suffix of source code files. Default: ".c".                                                    |
+| ins\_hex\_lst | Dictionary with some instructions which are disassembled differently by capstone and pintools. |
+| except\_ins   | Dictionary with some instructions which cannot be assembled correctly by `gcc`.                |
+| ks            | Assembler. Default: keystone in 32-bit.                                                        |
 
 ### 0x2 FetchTestSet.py
 
-Start the makefile script to compile the programs, then execute them with pintools to record execution traces. Possible failures include 3 conditions: gcc compilation failed, Obfuscator process failed and the pintool failed to record a log.
+Start the makefile script to compile the programs, then execute them with pintools to record execution traces. Possible failures are in 3 conditions: `gcc` compilation error, obfuscator processing error and pintool execution error.
 
 **Command line arguments：**
 
@@ -70,7 +70,7 @@ python FetchTestSet.py  -d dir1 dir2 ...  [-b base_dir  -a anchor_str  -l logfil
 ```
 
 * `-d`     Directory of executables for test, you can select more than one
-* `-b`     Parent directory of test programs' directory. Look for in recursive
+* `-b`     Parent directory of test programs' directory. Search in recursive
 * `-a`     Anchor instruction
 * `-l`     Location of log file. Default:`""`, print to the console
 
@@ -88,7 +88,7 @@ python FetchTestSet.py  -d dir1 dir2 ...  [-b base_dir  -a anchor_str  -l logfil
 
 ### 0x3 AnchorFinder.py
 
-Analyze the logs to determine crieria if the tested instruction is an anchor instruction or not.
+Analyze the logs to determine whether the tested instruction is an anchor instruction or not.
 
 **Command line arguments：**
 

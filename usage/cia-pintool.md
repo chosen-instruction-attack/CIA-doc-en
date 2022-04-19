@@ -14,17 +14,17 @@ There are 6 pintools in all for test and use.
 
 ### 0x1 instracelog
 
-This one is to record every instruction executed between anchor instructions. It has two modes:
+This one is to record every instruction executed between anchor instructions. 2 modes:
 
 * **Script :**        Adapted to the toolchain processing.
-* **Readble :**    Easy to read and is used for testing.
+* **Readble :**    Easy to read and used for testing.
 
 **Path :** `Pintool/instracelog.cpp`
 
 **Command line arguments ：**
 
 * \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
-* \-o      Filename of output trace
+* \-o      Filename of the output trace
 
 **Script mode instruction format ：**
 
@@ -38,18 +38,18 @@ address; instruction length; EAX; EBX; ECX; EDX; ESI; EDI; ESP; EBP; EFLAGS; mem
 address; assembly; EAX; EBX; ECX; EDX; ESI; EDI; ESP; EBP; EFLAGS; memory reading address; memory writing address;
 ```
 
-PS: For memory reading address and memory writing address, the value is 0 if there is no memory reading or writing operation. Same for the rest pintools below.
+PS: For memory reading address and memory writing address, the value is 0 if there is no memory reading or writing operation. Same for other pintools below.
 
 ### 0x2 instracelog\_detail
 
-Add hex and assembly of instructions.
+Add hex and assembly information.
 
 **Path :** `Pintool/instracelog_detail.cpp`
 
 **Command line arguments ：**
 
 * \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
-* \-o      Filename of output trace
+* \-o      Filename of the output trace
 
 **Instruction format ：**
 
@@ -59,14 +59,14 @@ address; instruction length; EAX; EBX; ECX; EDX; ESI; EDI; ESP; EBP; EFLAGS; mem
 
 ### 0x3 instracelog\_64
 
-This version is for x86\_64 programs.
+Version for x86\_64 programs.
 
 **Path :** `Pintool/instracelog_64.cpp`
 
 **Command line arguments ：**
 
 * \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
-* \-o      Filename of output trace
+* \-o      Filename of the output trace
 
 **Instruction format ：**
 
@@ -82,11 +82,11 @@ Record all instructions executed, including those beyond anchor instructions.
 
 **Command line arguments ：**
 
-* \-o      Filename of output trace
+* \-o      Filename of the output trace
 
 ### 0x5 instracelog\_insdel
 
-Some anchor instructions would affect the execution environment and bring unwanted effects (e.g. syscall). This pintool is made to avoid it. The instracelog\_insdel can remove the anchor instruction at runtime with API INS\_Delete.
+Some anchor instructions, like "syscall", will affect the execution environment and bring unwanted effects. This pintool can remove the anchor instruction at runtime with API `INS_DELETE` to avoid such effects.
 
 **Path :** `Pintool/instracelog_insdel.cpp`
 
@@ -94,14 +94,14 @@ Some anchor instructions would affect the execution environment and bring unwant
 
 * \-s      The C source code of the sample
 * \-i       A text file whose content is an anchor instruction, like `cmpxchg eax, eax`
-* \-o      Filename of output trace
+* \-o      Filename of the output trace
 
 ### 0x6 anchorfinder
 
-This is used to determine if an instruction is an anchor instruction when the size of trace is too large for local storage. It supports two modes for determinnation: (<mark style="color:red;">details</mark>)
+This is used to determine if an instruction is an anchor instruction when the size of trace is too large for local storage. 2 modes for determinnation: (<mark style="color:red;">details</mark>)
 
-* **3anchor :** if an instruction occurs 3 times
-* **retanchor :** if the previous instruction is "ret"
+* **3anchor :**        If an instruction occurs 3 times
+* **retanchor :**     If the previous instruction is "ret"
 
 **Path :** `Pintool/anchorfinder.cpp`
 
