@@ -1,5 +1,5 @@
 ---
-description: benchmark generation and contrastive evaluation with other work
+description: Benchmark generation and contrastive evaluation with other work
 ---
 
 # Benchmark
