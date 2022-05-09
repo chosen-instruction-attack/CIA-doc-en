@@ -45,7 +45,7 @@ $ python insset_test.py -i testset -o output_dir -t c_template -m makefile_templ
 
 * `-i`     Path of instruction lists
 * `-o`     C source code files output directory
-* `-t`     C source code template (<mark style="color:red;">是目录吗</mark>)
+* `-t`     C source code template (<mark style="color:red;">directory?</mark>)
 * `-m`     Makefile template
 * `-a`     Anchor instruction. Default:`cmpxchg eax, eax`
 * \-`l`      Location of log file. Default:`""`, print to the console
